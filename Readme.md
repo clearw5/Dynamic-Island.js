@@ -1,7 +1,8 @@
 # 使用JavaScript 在Android上实现灵动岛
 
 知乎：https://zhuanlan.zhihu.com/p/566893074
-博客：=https://blog.autojs.org/2022/09/21/dynamic-island/
+
+博客：https://blog.autojs.org/2022/09/21/dynamic-island/
 
 ## 如何运行
 
