@@ -1,5 +1,8 @@
 # 使用JavaScript 在Android上实现灵动岛
 
+知乎：https://zhuanlan.zhihu.com/p/566893074
+博客：=https://blog.autojs.org/2022/09/21/dynamic-island/
+
 ## 如何运行
 
 本项目需要在Auto.js Pro 9.2.14以上版本运行。也可以直接下载[Releases](https://github.com/hyb1996/Dynamic-Island.js/releases)中的构建成品apk运行。
