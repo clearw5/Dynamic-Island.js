@@ -1,0 +1,19 @@
+<frame>
+	<column animateLayoutChanges="true" w="1440px" gravity="center">
+		<card id="card" cardBackgroundColor="#000000">
+			<frame>
+				<row id="message" visibility="gone" gravity="center_vertical" w="*">
+					<img id="messageIcon" w="18" h="18" marginLeft="12" />
+					<text id="messageText" textColor="#ffffff" textSize="12" marginLeft="8" marginRight="12" ellipsize="end" maxLines="1" />
+				</row>
+				<row id="expandedMessage" visibility="gone" gravity="center_vertical" w="*">
+					<img id="expandedMessageIcon" w="48" h="48" marginLeft="24" />
+					<column marginLeft="12" marginRight="24">
+						<text id="expandedMessageTitle" textColor="#ffffff" textSize="14" ellipsize="end" maxLines="1" />
+						<text id="expandedMessageContent" textColor="#9f9f9f" marginTop="8" textSize="12" ellipsize="end" maxLines="1" />
+					</column>
+				</row>
+			</frame>
+		</card>
+	</column>
+</frame>
