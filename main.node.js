@@ -1,5 +1,4 @@
 "ui-thread";
-
 const { createWindow } = require("floating_window");
 const { accessibility } = require("accessibility");
 const { requestListeningNotifications } = require("notification");
@@ -69,7 +68,7 @@ class DynamicIsland {
 			radius: 15,
 		},
 		medium: {
-			w: "auto",
+			w: -2,
 			h: 30,
 			radius: 15,
 			messageContainer: true,
@@ -93,18 +92,23 @@ class DynamicIsland {
 		});
 		this.window.setPosition(0, 15 - getStatusBarHeight());
 	}
-
+	get view() {
+		return new Proxy(this, {
+			get: (target, key) => {
+				return this.window.view.findView(key);
+			},
+		});
+	}
 	async show() {
 		await this.window.setViewFromXmlFile("./island.xml");
-
-		this.card = this.window.view.findView("card");
-		this.messageContainer = this.window.view.findView("message");
-		this.messageText = this.window.view.findView("messageText");
-		this.messageIcon = this.window.view.findView("messageIcon");
-		this.expandedMessage = this.window.view.findView("expandedMessage");
-		this.expandedMessageIcon = this.window.view.findView("expandedMessageIcon");
-		this.expandedMessageTitle = this.window.view.findView("expandedMessageTitle");
-		this.expandedMessageContent = this.window.view.findView("expandedMessageContent");
+		this.card = this.view.card;
+		this.messageContainer = this.view.message;
+		this.messageText = this.view.messageText;
+		this.messageIcon = this.view.messageIcon;
+		this.expandedMessage = this.view.expandedMessage;
+		this.expandedMessageIcon = this.view.expandedMessageIcon;
+		this.expandedMessageTitle = this.view.expandedMessageTitle;
+		this.expandedMessageContent = this.view.expandedMessageContent;
 
 		const transition = this.card.getParent().getLayoutTransition();
 		transition.enableTransitionType(LayoutTransition.CHANGING);
@@ -136,13 +140,7 @@ class DynamicIsland {
 	setState(state) {
 		const style = DynamicIsland.styles[state];
 		//增加自动宽度
-		let targetWidth = style.w;
-		if (style.w == "auto") {
-			let messageWidth = this.messageText.getText().length * 50;
-			let px = Math.max(Math.min(messageWidth, device.screenWidth - 200), 400);
-			targetWidth = px2dp(px);
-		}
-		this.card.attr("w", targetWidth.toString());
+		this.card.attr("w", style.w.toString());
 		this.card.attr("h", style.h.toString());
 		this.card.attr("cardCornerRadius", style.radius.toString());
 		this.messageContainer.attr("visibility", style.messageContainer ? "visible" : "gone");
