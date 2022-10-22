@@ -1,0 +1,10 @@
+{
+	"name": "dynamic_island",
+	"version": "1.0.0",
+	"private": true,
+	"main": "main.node.js",
+	"devDependencies": {
+		"@autojs/types-pro9": "^9.1.20",
+		"@types/node": "^18.7.13"
+	}
+}

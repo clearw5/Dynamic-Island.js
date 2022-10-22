@@ -1,8 +1,8 @@
 <frame>
-	<column animateLayoutChanges="true" w="1440px" gravity="center">
+	<column animateLayoutChanges="true" w="*" gravity="center">
 		<card id="card" cardBackgroundColor="#000000">
 			<frame>
-				<row id="message" visibility="gone" gravity="center_vertical" w="*">
+				<row id="message" visibility="gone" gravity="center" w="*">
 					<img id="messageIcon" w="18" h="18" marginLeft="12" />
 					<text id="messageText" textColor="#ffffff" textSize="12" marginLeft="8" marginRight="12" ellipsize="end" maxLines="1" />
 				</row>
